@@ -1,0 +1,55 @@
+body {
+	font-family: Tahoma, "Lucida Grande", Arial, sans-serif;
+	font-size: 62.5%;
+}
+h1 {
+	font-size: 2.4em;
+}
+h2 {
+	font-size: 1.8em;
+	color: #666666;
+}
+h3 {
+	font-size: 1.4em;
+	color: #14556B;
+}
+p, ul, ol {
+	font-size: 1.2em;
+	line-height: 130%;
+}
+
+ul {
+	color: #666666;
+	list-style: square;
+}
+#main{
+	margin: 40px;
+	background-color: beige;
+	height: max-content;
+}
+#header{
+	border-top: 2px solid yellow;
+	border-bottom: 2px solid yellow;
+	background-color: darkslategray;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+#header h1{
+	margin-left: 30px;
+	color: white;
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 30px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#list{
+	display: inline-block;
+	width: 200px;
+	margin-left: auto;
+	background-color: yellow;
+	position: relative;
+	float: right;
+}
+#list h3{
+	text-align: center;
+}

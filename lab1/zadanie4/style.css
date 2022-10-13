@@ -1,0 +1,21 @@
+.row{
+    display: flex;
+}
+.red{
+    background-color: red;
+    width: 20%;
+    height: 100px;
+    margin: 20px;
+}
+.blue{
+    background-color: blue;
+    width: 80%;
+    height: 100px;
+    margin: 20px;
+}
+.yellow{
+    display: flex;
+    background-color: yellow;
+    height: 100px;
+    margin: 20px;
+}

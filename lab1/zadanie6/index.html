@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="style.css">
+      <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li><a href="/index.html">Strona glowna</a></li>
+      <li><a href="/features/">Oferta</a></li>
+      <li><a href="/experts/">Eksperci</a></li>
+      <li><a href="/quiz/">Quiz</a></li>
+      <li><a href="/projects/">Projekty</a></li>
+      <li><a href="/horoscopes/">Horoskop</a></li>
+    </ul>
+    <section>
+      <div>
+        <img src="images/zdjecie.jfif" alt="">
+        <p class="blue">Opis1</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, ullam culpa sed aliquid quasi labore nam quaerat exercitationem ducimus nisi.</p>
+      </div>
+      <div>
+        <img src="images/zdjecie.jfif" alt="">
+        <p class="blue">Opis2</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, ullam culpa sed aliquid quasi labore nam quaerat exercitationem ducimus nisi.</p>
+      </div>
+      <div>
+        <img src="images/zdjecie.jfif" alt="">
+        <p class="blue">Opis3</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, ullam culpa sed aliquid quasi labore nam quaerat exercitationem ducimus nisi.</p>
+      </div>
+      <div>
+        <img src="images/zdjecie.jfif" alt="">
+        <p class="blue">Opis4</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, ullam culpa sed aliquid quasi labore nam quaerat exercitationem ducimus nisi.</p>
+      </div>
+      <div>
+        <img src="images/zdjecie.jfif" alt="">
+        <p class="blue">Opis5</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, ullam culpa sed aliquid quasi labore nam quaerat exercitationem ducimus nisi.</p>
+      </div>
+      <div>
+        <img src="images/zdjecie.jfif" alt="">
+        <p class="blue">Opis6</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, ullam culpa sed aliquid quasi labore nam quaerat exercitationem ducimus nisi.</p>
+      </div>
+    </section>
+    <form action="submission.html" method="POST">
+      <label for="nrKonta" required pattern="[0-9]{18-26}">Numer Konta:</label>
+      <input type="text" id="nrKonta" name="nrKonta">
+      <br>
+
+      <label for="fname" required pattern="[A-Z][a-z]+">Imie:</label>
+      <input type="text" id="fname" name="fname">
+      <br>
+
+      <label for="lname" required pattern="[A-Z][a-z]+">Nazwisko:</label>
+      <input type="text" id="lname" name="lname">
+      <br>
+
+      <label for="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">Email:</label>
+      <input type="text" id="email" name="email">
+      <br>
+
+      <label for="adres" required pattern="[a-zA-Z0-9-]+">Adres:</label>
+      <input type="text" id="adres" name="adres">
+      <br>
+
+      <label for="kod_pocztowy" required pattern="[0-9]{2}-[0-9]{3}">Kod Pocztowy:</label>
+      <input type="text" id="kod_pocztowy" name="kod_pocztowy">
+      <br>
+
+      <label for="miasto" required pattern="[A-Z][a-z]+">Miasto:</label>
+      <input type="text" id="miasto" name="miasto">
+      <br>
+
+      <label for="kwota_przelewu" required pattern="[0-9.]+">Last name:</label>
+      <input type="text" id="kwota_przelewu" name="kwota_przelewu">
+      <br>
+
+      <label for="data przelewu" required pattern="[0-9]{2}.[0-9]{2}.[0-9]{4}:[0-9]{2}.[0-9]{2}">Data pzrelewu:</label>
+      <input type="text" id="data przelewu" name="data przelewu">
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>

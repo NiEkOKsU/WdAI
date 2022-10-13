@@ -1,0 +1,38 @@
+ul{
+    display:flex;
+    flex-direction: row;
+    justify-items:stretch;
+    list-style-type: none;
+    border-top: 1px red solid;
+    border-bottom: 1px red solid;
+}
+
+
+li{
+    border: 1px solid blue;
+    background-color: red;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+ul div{
+    flex-basis: 50%;
+}
+
+
+ ul div:nth-child(1){
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+ }
+
+ ul div:nth-child(2){
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: end;
+ }
