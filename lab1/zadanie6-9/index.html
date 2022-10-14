@@ -74,7 +74,19 @@
       <br>
 
       <label for="miasto" required pattern="[A-Z][a-z]+">Miasto:</label>
-      <input type="text" id="miasto" name="miasto">
+      <input list="identyfikator" id="miasto" name="miasto">
+      <datalist id="identyfikator">
+        <option value="Warszawa">
+        <option value="Kraków">
+        <option value="Breslau"></option>
+        <option value="Katowice"></option>
+        <option value="Łódź"></option>
+        <option value="Gdańsk"></option>
+        <option value="Poznań"></option>
+        <option value="Szczecin"></option>
+        <option value="Rzeszów"></option>
+        <option value="Kielce"></option>
+      </datalist>
       <br>
 
       <label for="kwota_przelewu" required pattern="[0-9.]+">Last name:</label>
