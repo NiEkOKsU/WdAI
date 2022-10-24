@@ -1,0 +1,69 @@
+main{
+    background-color: rgb(15, 15, 94);
+    margin: 0px 0px;
+    height: 65%;
+}
+#mainpic{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    height: 800px;
+}
+#smallpic{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+#kebmenu{
+    position: fixed;
+    padding: 20px 5px;
+    background-color: white;
+    bottom: 18%;
+    left: 20px;
+    border-radius: 30px 30px 30px 30px;
+}
+#maincontent{
+    width: 55%;
+    margin: 0 auto;
+}
+#maincontent img{
+    margin: 0 auto;
+}
+body main div nav{
+    position: relative;
+    display: flex;
+    bottom: 50px;
+    margin: 0 auto;
+    column-gap: 20px;
+    align-content: space-between;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+body main div nav div{
+    border-radius: 150px 150px 150px 150px;
+    padding: 8px 10px;
+}
+.white{
+    background-color: white;
+    color: aquamarine;
+}
+.red{
+    background-color: red;
+    color: white;
+}
+@media (max-width: 1000px){
+    #smallpic{
+        height: auto;
+        width: auto;
+    }
+    #maincontent{
+        width: 100%;
+        margin: 0 auto;
+    }
+    #mainpic{
+        height: 800px;
+        width: auto;
+    }
+}
