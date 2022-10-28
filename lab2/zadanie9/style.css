@@ -1,0 +1,158 @@
+main{
+    background: linear-gradient(358deg, #ffffff 30%, transparent 31%); 
+    background-color: blue;
+}
+#textbox{
+    animation-duration: 2s;
+    animation-name: slideleft;
+    padding-top: 60px;
+    padding-bottom: 150px;
+    margin-left: 10%;
+    margin-right: 60%;
+    color: white;
+}
+
+h1{
+  font-weight: 200;
+}
+
+h2 {
+  margin-top: 5px;
+  margin-bottom: 2rem;
+}
+
+p{
+  margin-bottom: 25px;
+}
+
+a{
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px 30px;
+    transition: 0.7s;
+    border-radius: 10px 10px 10px 10px;
+}
+
+main div a{
+  border: 1px solid white;
+}
+main div form a{
+  background-color: blue;
+  border: 1px solid #0000ff;
+}
+
+a:hover{
+  background-color: white;
+  color: #0000FF;
+  transition: 0.7s;
+  font-weight: 500;
+}
+
+main div form a:hover{
+  border: 2px solid #0000ff;
+}
+main div a:hover{
+  border: 2px solid white;
+}
+
+.login-box {
+    position: absolute;
+    animation-duration: 2s;
+    animation-name: slideright;
+    margin-top: 80px;
+    top: 150px;
+    right: 5%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: white;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+}
+
+.login-box .user-box {
+    position: relative;
+}
+
+.login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid gray;
+    outline: none;
+    background: transparent;
+}
+
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  font-size: 0px;
+}
+
+@keyframes slideright {
+  from {
+    margin-right: -50%;
+  }
+
+  to {
+    margin-right: 0%;
+  }
+}
+
+@keyframes slideleft {
+  from {
+    margin-left: -50%;
+  }
+
+  to {
+    margin-left: 10%;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .login-box {
+    position: absolute;
+    top: 400px;
+    left: 50%;
+    margin-bottom: 50px;
+  }
+  h1{
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+  #textbox{
+    width: 80%;
+    padding-top: 20px;
+    padding-bottom: 250px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .login-box {
+    position: absolute;
+    top: 450px;
+    left: 50%;
+    margin-bottom: 50px;
+  }
+  h1{
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+  #textbox{
+    width: 80%;
+    padding-top: 20px;
+    padding-bottom: 300px;
+  }
+}
