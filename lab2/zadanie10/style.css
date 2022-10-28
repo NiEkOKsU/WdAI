@@ -1,0 +1,97 @@
+main{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    column-gap: 10px;
+}
+h2{
+    position: relative;
+    bottom: 75px;
+    margin-right: 50%;
+}
+.flip-card-front p{
+    border-bottom: 1px solid rgba(124, 122, 122, 0.2);
+}
+#pierwsza{
+    background-color: rgba(255, 196, 0, 0.7);
+}
+#druga{
+    background-color: rgba(0, 136, 247, 0.8);
+}
+img{
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 100%,
+        0 calc(100% - 2vw)
+      );
+}
+a{
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    padding: 10px 25px;
+    border-radius: 20px 20px 20px 20px; 
+}
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 500px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+    background-color: white;
+    color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-around;
+    justify-items: center;
+    justify-content: space-around;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+#back1{
+    background-color: orange;
+}
+#back2{
+    background-color: dodgerblue;;
+}
+@media only screen and (max-width: 1000px) {
+    main{
+        justify-content: center;
+    }
+}
