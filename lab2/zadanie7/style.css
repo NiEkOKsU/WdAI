@@ -1,25 +1,29 @@
+body{
+    height: 100vw;
+}
 main{
     background-color: rgb(15, 15, 94);
     margin: 0px 0px;
-    height: 65%;
+    height: 66.5vw;
 }
 #mainpic{
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    height: 800px;
+    height: 66.5vw;
 }
 #smallpic{
     position: absolute;
     top: 20px;
     left: 20px;
+    height: 20vw;
 }
 #kebmenu{
-    position: fixed;
+    position: relative;
     padding: 20px 5px;
     background-color: white;
-    bottom: 18%;
+    bottom: 15vw;
     left: 20px;
     border-radius: 30px 30px 30px 30px;
 }
@@ -54,16 +58,12 @@ body main div nav div{
     color: white;
 }
 @media (max-width: 1000px){
-    #smallpic{
-        height: auto;
-        width: auto;
-    }
     #maincontent{
+        height: 100%;
         width: 100%;
         margin: 0 auto;
     }
     #mainpic{
-        height: 800px;
         width: auto;
     }
 }
