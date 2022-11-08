@@ -1,7 +1,7 @@
 body{
     display: grid;
     grid-template-columns: 19% 60% 19%;
-    grid-template-rows: repeat(2, 100px) 128vw 100px;
+    grid-template-rows: repeat(2, 100px) auto 100px;
     grid-column-gap: 1%;
     grid-row-gap: 50px;
 }
@@ -18,8 +18,8 @@ body div img{
 #icons{
     display: flex;
     row-gap: 10px;
-    flex-direction: column;
-    align-content: center;
+    flex-direction: row;
+    justify-content: space-around;
 }
 #sidebar p{
     position: relative;
@@ -33,13 +33,15 @@ body div img{
     color: black;
     width: 10%;
 }
-#sidebar #icons a span{
-    float: left;
-}
 #sidebar{
     grid-column: 1;
     grid-row: 2 / span 2;
     border: 1px solid red;
+    position: fixed;
+    background-color: yellowgreen;
+    height: 250px;
+    top: 18%;
+    z-index: 3;
 }
 
 nav{
@@ -52,10 +54,13 @@ main{
     grid-row: 3;
     border: 1px solid red;
     background-image: url("img/back1.jfif");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 main section{
     clip-path: polygon(6% 0, 100% 0%, 94% 100%, 0% 100%);
-    height: 150px;
+    height: 200px;
     background-color: rgba(255, 255, 255, 0.8);
     margin-bottom: 20px;
 }
@@ -66,6 +71,10 @@ main section img {
     height: 150px;
     float: left;
     margin-left: 5%;
+}
+main section p{
+    margin-left: 15px;
+    margin-right: 15px;
 }
 #form-box{
     height: 400px;
@@ -105,7 +114,7 @@ input[type="date"] {
 input[type=radio], input[type=checkbox]  {
     display: none;
 }
-    label.radio {
+label.radio {
     position: relative;
     display: inline-block;
     margin: 5px 20px 15px 0;
@@ -187,7 +196,7 @@ footer{
     body{
         display: grid;
         grid-template-columns: 20% 79%;
-        grid-template-rows: repeat(2, 100px) 193vw 100px;
+        grid-template-rows: repeat(2, 100px) auto 100px;
         grid-column-gap: 1%;
         grid-row-gap: 50px;
     }
@@ -199,6 +208,7 @@ footer{
     #sidebar{
         grid-column: 1;
         grid-row: 3;
+        top: 30%;
     }
 
     nav{
@@ -223,7 +233,7 @@ footer{
     body{
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: repeat(2, 100px) 280vw  250px repeat(2, 100px);
+        grid-template-rows: repeat(2, 100px) auto  250px repeat(2, 100px);
         grid-row-gap: 50px;
     }
 
@@ -233,15 +243,15 @@ footer{
 
     #sidebar{
         grid-row: 4;
+        position: static;
+        height: auto;
     }
     #icons{
         column-gap: 10px;
+        justify-content: flex-start;
     }
     #sidebar #icons  a{
         width: 5%;
-    }
-    #icons{
-        flex-direction: row;
     }
     nav{
         grid-row: 2;

@@ -1,0 +1,30 @@
+body{
+    height: 1200px;
+    overflow: hidden;
+}
+main{
+    width: 40vw;
+    height: 40vw;
+    margin: 0 auto;
+    text-align: center;
+    -webkit-box-shadow: 3px -3px 100px 24px rgba(66, 68, 90, 0.57);
+    -moz-box-shadow: 3px -3px 100px 24px rgba(66, 68, 90, 0.57);
+    box-shadow: 3px -3px 100px 24px rgba(66, 68, 90, 0.57);
+    overflow: hidden;
+}
+main:hover{
+    cursor: pointer;
+}
+#circle{
+    background-color: red;
+    border-radius: 100%;
+    height: 70px;
+    width: 70px;
+    position: relative;
+    left: 50px;
+    top: 50px;
+    transition: left .5s ease-in, top .5s ease-in;
+}
+h1{
+    color: white;
+}

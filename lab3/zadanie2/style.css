@@ -1,0 +1,22 @@
+img{
+    position: absolute;
+}
+img:nth-child(1){
+    border: red solid 2px;
+}
+img:nth-child(2){
+    visibility: hidden;
+    border: blue solid 2px;
+}
+img:nth-child(3){
+    visibility: hidden;
+    border: green solid 2px;
+}
+button{
+    position: absolute;
+    top: 250px;
+    left: 100px;
+}
+#btn2, #btn3{
+    visibility: hidden;
+}
