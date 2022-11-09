@@ -11,6 +11,7 @@ let med_clicked = false
 let big_clicked = false
 let smallOver = false
 let medOver = false
+let reverse = false
 
 let small = document.getElementById("small")
 let med = document.getElementById("med")
@@ -22,49 +23,84 @@ let change = document.getElementById("change")
 let el
 let textNode
 
-function addToList(){
-    if(small_clicked && !smallOver){
-        el = document.createElement("li");
-        console.log(el)
-        textNode = document.createTextNode("Dodano " + howMuchPoint[(number + 2) % boxNum] + " pkt");
-        el.appendChild(textNode);
-        document.getElementById("list").appendChild(el);
-    }
-    if(med_clicked && !medOver){
-        el = document.createElement("li");
-        textNode = document.createTextNode("Dodano " + howMuchPoint[(number + 1) % boxNum] + " pkt");
-        el.appendChild(textNode);
-        document.getElementById("list").appendChild(el);
-    }
-    if(big_clicked){
-        el = document.createElement("li");
-        textNode = document.createTextNode("Dodano " + howMuchPoint[(number) % boxNum] + " pkt");
-        el.appendChild(textNode);
-        document.getElementById("list").appendChild(el);
-    }
-}
 function addToSmall(){
-    points += howMuchPoint[(number + 2) % boxNum]
-    small_clicked = true
-    document.getElementById("points").textContent = points
+    if (reverse){
+        if(smallOver){
+            big_clicked = true
+            return
+        }
+        points += howMuchPoint[0]
+        big_clicked = true
+        document.getElementById("points").textContent = points
+        el = document.createElement("li");
+        textNode = document.createTextNode("Dodano " + howMuchPoint[0] + " pkt");
+        el.appendChild(textNode);
+        document.getElementById("list").appendChild(el);
+    }
+    else{
+        points += howMuchPoint[2]
+        small_clicked = true
+        document.getElementById("points").textContent = points
+        el = document.createElement("li");
+        textNode = document.createTextNode("Dodano " + howMuchPoint[2] + " pkt");
+        el.appendChild(textNode);
+        document.getElementById("list").appendChild(el);
+    }
 }
 
 function addToMed(){
+    if (reverse){
+        if(!big_clicked || propagation){
+            points += howMuchPoint[1]
+            med_clicked = true
+            document.getElementById("points").textContent = points
+            el = document.createElement("li");
+            textNode = document.createTextNode("Dodano " + howMuchPoint[1] + " pkt");
+            el.appendChild(textNode);
+            document.getElementById("list").appendChild(el);
+        }
+        return
+    }
     if (!small_clicked || propagation){
-        points += howMuchPoint[(number + 1) % boxNum]
+        points += howMuchPoint[1]
         med_clicked = true
         document.getElementById("points").textContent = points
+        el = document.createElement("li");
+        textNode = document.createTextNode("Dodano " + howMuchPoint[1] + " pkt");
+        el.appendChild(textNode);
+        document.getElementById("list").appendChild(el);
     }
 }
 
 function addToBig(){
-    if ((!small_clicked && !med_clicked) || propagation){
-        points += howMuchPoint[number % boxNum]
-        document.getElementById("points").textContent = points
-        big_clicked = true
+    console.log(small_clicked)
+    console.log(med_clicked)
+    console.log(big_clicked)
+    if (reverse){
+        if ((!big_clicked && !med_clicked) || propagation){
+            points += howMuchPoint[2]
+            small_clicked = true
+            document.getElementById("points").textContent = points
+            el = document.createElement("li");
+            textNode = document.createTextNode("Dodano " + howMuchPoint[2] + " pkt");
+            el.appendChild(textNode);
+            document.getElementById("list").appendChild(el);
+        }
+        pointStatusCheckRev()
+        return
     }
-    addToList()
-    pointStatusCheck()
+    else{
+        if ((!small_clicked && !med_clicked) || propagation){
+            points += howMuchPoint[0]
+            document.getElementById("points").textContent = points
+            big_clicked = true
+            el = document.createElement("li");
+            textNode = document.createTextNode("Dodano " + howMuchPoint[0] + " pkt");
+            el.appendChild(textNode);
+            document.getElementById("list").appendChild(el);
+        }
+        pointStatusCheck()
+    }
 }
 
 function setSmallTrue(){
@@ -75,15 +111,35 @@ function setMedTrue(){
     med_clicked = true
 }
 
+function setBigTrue(){
+    big_clicked = true
+}
+
 function pointStatusCheck(){
-    if (points > 30){
+    if (points > 30 && !medOver){
         med.removeEventListener('click', addToMed, false)
         med.addEventListener('click', setMedTrue, false)
         medOver = true
     }
-    if (points > 50){
+    if (points > 50 && !smallOver){
         small.removeEventListener('click', addToSmall, false)
         small.addEventListener('click', setSmallTrue, false)
+        smallOver = true
+    }
+    small_clicked = false
+    med_clicked = false
+    big_clicked = false
+}
+
+function pointStatusCheckRev(){
+    if (points > 30 && !medOver){
+        med.removeEventListener('click', addToMed, false)
+        med.addEventListener('click', setMedTrue, false)
+        medOver = true
+    }
+    if (points > 50 && !smallOver){
+        small.removeEventListener('click', addToSmall, false)
+        small.addEventListener('click', setBigTrue, false)
         smallOver = true
     }
     small_clicked = false
@@ -127,7 +183,37 @@ function prop(){
 }
 
 function changer(){
-    number += 1
+    if (reverse){
+        reverse = false
+        small_clicked = true
+        big_clicked = false
+        if(medOver){
+            med.removeEventListener('click', addToMed, false)
+            med.addEventListener('click', setMedTrue, false)
+        }
+        if(smallOver){
+            small.removeEventListener('click', addToSmall, false)
+            small.removeEventListener('click', setBigTrue, false)
+            small.addEventListener('click', setSmallTrue, false)
+        }
+    }
+    else{
+        reverse = true
+        small_clicked = false
+        big_clicked = true
+        if(medOver){
+            med.removeEventListener('click', addToMed, false)
+            med.addEventListener('click', setMedTrue, false)
+        }
+        if(smallOver){
+            small.removeEventListener('click', addToSmall, false)
+            small.removeEventListener('click', setSmallTrue, false)
+            small.addEventListener('click', setBigTrue, false)
+        }
+    }
+    small_clicked = false
+    med_clicked = false
+    big_clicked = false
     el = document.createElement("li");
     textNode = document.createTextNode("Zmieniono wartościowanie pudełek");
     el.appendChild(textNode);
@@ -135,14 +221,12 @@ function changer(){
 }
 
 function start() {
-    if (points === 0){
-        small.addEventListener('click', addToSmall, false)
-        med.addEventListener('click', addToMed, false)
-        big.addEventListener('click', addToBig, false)
-        reset.addEventListener('click', restart, false)
-        propagationButton.addEventListener('click', prop, false)
-        change.addEventListener('click', changer, false)
-    }
+    small.addEventListener('click', addToSmall, false)
+    med.addEventListener('click', addToMed, false)
+    big.addEventListener('click', addToBig, false)
+    reset.addEventListener('click', restart, false)
+    propagationButton.addEventListener('click', prop, false)
+    change.addEventListener('click', changer, false)
 }
 
 start()

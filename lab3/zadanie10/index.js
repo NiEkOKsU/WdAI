@@ -41,8 +41,7 @@ function getPosition(el) {
 
 function alarm(el){
     if (!mainClick){
-        h1.textContent = "Naciśnięto poza obszar"
-        body.style.backgroundColor = "red";
+        alert("Naciśnięto poza obszar")
         return;
     }
     mainClick = false;
