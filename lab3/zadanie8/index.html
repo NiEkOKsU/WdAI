@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <title>Document</title>
+</head>
+<body>
+  <div class="passwordWrapper">
+    <label for="passwordField">
+      Wpisz nowe hasło
+    </label>
+    <div class="password-input">
+        <input type="password" id="passwordField">
+        <span class="material-symbols-outlined visibility-on" id="on1">visibility</span>
+        <span class="material-symbols-outlined visibility-off" id="off1">visibility_off</span>
+    </div>
+    
+    <label for="repeatPassword">
+        Powtórz hasło
+    </label>
+    <div class="password-input">
+        <input type="password" id="repeatPassword">
+        <span class="material-symbols-outlined visibility-on" id="on2">visibility</span>
+        <span class="material-symbols-outlined visibility-off" id="off2">visibility_off</span>
+    </div>
+    <button id="button">Set password</button>
+  </div>
+  <h4>Password requirements: </h4>
+  <section><div class="validity-check" id="length"></div><p> At least 8 characters</p></section>
+  
+  <section><div class="validity-check" id="capitalLetter"></div><p> At least 1 capital letter</p></section>
+  
+  <section><div class="validity-check" id="specialChar"></div><p> At least 1 special character</p></section>
+  
+  <section><div class="validity-check" id="number"></div><p> At least 1 number</p></section>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,6 +1,9 @@
+let zmienna = 5
+
 document.getElementById("add").onclick = function() {
     let el = document.createElement("li");
-    let textNode = document.createTextNode("Item-" + 1);
+    let textNode = document.createTextNode("Item-" + zmienna);
+    zmienna++
     el.appendChild(textNode);
     document.getElementById("list").appendChild(el);
 }

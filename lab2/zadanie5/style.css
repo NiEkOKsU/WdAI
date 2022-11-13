@@ -55,7 +55,7 @@ p{
     transition-duration: 0.5s;
 }
 
-@media only screen and (max-width: 1550px){
+@media only screen and (max-width: 900px){
     nav div p{
         font-size: 0px;
     }
