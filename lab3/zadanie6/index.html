@@ -11,17 +11,16 @@
     <main>
         <h1>Książka adresowa</h1>
         <div id="adresses">
-
         </div>
         <section id="adding-adress">
             <form action="">
                 <div class="input-cont">
                     <p>Imię nazwisko</p>
-                    <input type="text" name="imie-nazwisko" id="imie-nazwisko" required="true" required pattern="[A-Z]{1}[a-z]+[ ]{1}[A-Z]{1}[a-z]+">
+                    <input type="text" required="true" id="name" name="name" required pattern="[A-Z]{1}[a-z]+[ ]{1}[A-Z]{1}[a-z]+">
                 </div>
                 <div class="input-cont">
                     <p>Telefon</p>
-                    <input  type="text" name="tel" id="tel" required="true" required pattern="[0-9]{9-12}">
+                    <input type="text" required="true" id="tel" name="tel" required pattern=".*?(\\d{2}).*(\\d{3}).*(\\d{3}).*(\\d{3})">
                 </div>
                 <div id="add">Dodaj</div>
             </form>

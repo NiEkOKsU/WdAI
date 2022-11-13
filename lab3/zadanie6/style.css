@@ -1,12 +1,19 @@
 form{
+    margin-left: 20px;
     display: flex;
-    column-gap: 20px;
+    justify-content: space-between;
+    column-gap: 1em;
 }
 form p{
     font-size: 0.9em;
+    color: rgba(0,0,0,0.6);
+}
+.input-cont{
+    width: auto;
 }
 #add{
     position: relative;
+    margin-right: 10px;
     top: 30px;
     background-color: rgb(0, 150, 0);
     height: 50%;
@@ -17,7 +24,58 @@ form p{
 }
 #add:hover{
     cursor: pointer;
-    padding: 12px;
     transition-duration: 0.7s;
     background-color: rgb(0, 200, 0);
+}
+
+section{
+    border: 1px solid gray;
+    padding-bottom: 20px;
+    width: 600px;
+    margin-top: 20px;
+}
+
+.adress{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left{
+    margin-left: 20px;
+}
+
+.right{
+    margin-right: 20px;
+    background-color: green;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    transition-duration: 0.7s;
+}
+
+.right:hover{
+    background-color: red;
+    transition-duration: 0.7s;
+}
+
+@media only screen and (max-width: 600px) {
+    section{
+        width:100%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    form{
+        flex-direction: column;
+    }
+    #adding-adress{
+        height: 200px;
+        width: 70%;
+    }
+    #add{
+        max-width: 30%;
+        text-align: center;
+    }
 }
