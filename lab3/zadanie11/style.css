@@ -1,0 +1,54 @@
+nav{
+    display: grid;
+    grid-template: "a b c d"auto;
+    text-align: center;
+    background-color: cornflowerblue;
+}
+#site1, #site2, #site3{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+div{
+    width: 100%;
+}
+section{
+    width: 100%;
+    display: grid;
+    flex-direction: row;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: 50px;
+    text-align: center;
+    background-color: aquamarine;
+}
+
+.material-symbols-outlined{
+    position: relative;
+    cursor: pointer;
+    top: 5px;
+    padding: 1px;
+}
+.subregion-population{
+    grid-column: 3;
+}
+.subregion-area{
+    grid-column: 4;
+}
+.arrow-up{
+    display: none;
+}
+#bottom{
+    background-color: white;
+}
+#bottom-nav{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 30px;
+}
+.site-change{
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+    width: 10%;
+}

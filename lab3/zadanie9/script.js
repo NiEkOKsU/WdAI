@@ -14,13 +14,14 @@ let namee = document.querySelector("h4")
 let position = document.querySelector("#position")
 let desc = document.querySelector("#desc")
 let sliders = document.querySelector(".slide")
+let random = document.querySelector("#randomizer")
 
 const slideRight = [
-    { transform: 'translateX(200px)' },
+    { transform: 'translateX(400px)' },
     { transform: 'translateX(0px)' }
 ];
 const slideLeft = [
-    { transform: 'translateX(-200px)' },
+    { transform: 'translateX(-400px)' },
     { transform: 'translateX(0px)' }
 ];
 
@@ -63,5 +64,18 @@ function prev(){
     desc.animate(slideRight, timing)
 }
 
+function randomizer(){
+    let id = Math.floor(Math.random() * 3)
+    img.src = PHOTOSSRC[id]
+    img.animate(slideRight, timing)
+    namee.innerHTML = NAME[id]
+    namee.animate(slideRight, timing)
+    position.innerHTML = POS[id]
+    position.animate(slideRight, timing)
+    desc.innerHTML = DESC[id]
+    desc.animate(slideRight, timing)
+}
+
 right.addEventListener('click', next)
 left.addEventListener('click', prev)
+random.addEventListener('click', randomizer)
