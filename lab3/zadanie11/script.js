@@ -1,3 +1,13 @@
+let visible = []
+let bigger = []
+
+function addToSec(section, name, el, content){
+    el = document.createElement("p")
+    el.classList.add(name)
+    el.textContent = content
+    section.appendChild(el)
+}
+
 function eventsStarts(data, subregionsNames){
     const main = document.querySelector("main")
     let container
@@ -5,6 +15,8 @@ function eventsStarts(data, subregionsNames){
     let section
     let countrySub
     let countryName
+    let population
+    let area
     Array.from(buttons).forEach(button =>{
         button.addEventListener('click', () => {
             let containerID = parseInt(button.id) + 100
@@ -14,44 +26,20 @@ function eventsStarts(data, subregionsNames){
                 if (country.subregion === undefined && subregionsNames[button.id][0] === undefined){
                     container = document.getElementById("" + containerID)
                     section = document.createElement("section")
-                    countrySub = document.createElement("p")
-                    countrySub.classList.add("subregion-name")
-                    countrySub.textContent = country.name.common
-                    section.appendChild(countrySub)
-                    countryName = document.createElement("p")
-                    countryName.classList.add("country-name")
-                    countryName.textContent = country.capital
-                    section.appendChild(countryName)
-                    subPopulation = document.createElement("p")
-                    subPopulation.classList.add("subregion-population")
-                    subPopulation.textContent = country.population
-                    section.appendChild(subPopulation)
-                    subArea = document.createElement("p")
-                    subArea.classList.add("subregion-area")
-                    subArea.textContent = country.area
-                    section.appendChild(subArea)
+                    addToSec(section, "subregion-name", countrySub, country.name.common)
+                    addToSec(section, "country-name", countryName, country.capital)
+                    addToSec(section, "subregion-population", population, country.population)
+                    addToSec(section, "subregion-area", area, country.area)
                     countryContainer.appendChild(section)
                     container.appendChild(countryContainer)
                 }
                 else if(country.subregion === subregionsNames[button.id][0]){
                     container = document.getElementById("" + containerID)
                     section = document.createElement("section")
-                    countrySub = document.createElement("p")
-                    countrySub.classList.add("subregion-name")
-                    countrySub.textContent = country.name.common
-                    section.appendChild(countrySub)
-                    countryName = document.createElement("p")
-                    countryName.classList.add("country-name")
-                    countryName.textContent = country.capital
-                    section.appendChild(countryName)
-                    subPopulation = document.createElement("p")
-                    subPopulation.classList.add("subregion-population")
-                    subPopulation.textContent = country.population
-                    section.appendChild(subPopulation)
-                    subArea = document.createElement("p")
-                    subArea.classList.add("subregion-area")
-                    subArea.textContent = country.area
-                    section.appendChild(subArea)
+                    addToSec(section, "subregion-name", countrySub, country.name.common)
+                    addToSec(section, "country-name", countryName, country.capital)
+                    addToSec(section, "subregion-population", population, country.population)
+                    addToSec(section, "subregion-area", area, country.area)
                     countryContainer.appendChild(section)
                     container.appendChild(countryContainer)
                 }
@@ -59,7 +47,8 @@ function eventsStarts(data, subregionsNames){
             let botId = parseInt(button.id) + 25
             document.getElementById("" + botId).style.display = "inline-block"
             document.getElementById(button.id).style.display = "none"
-            
+            visible.push(countryContainer.id)
+            bigger.push("" + containerID)
         })
     })
 
@@ -72,7 +61,10 @@ function eventsStarts(data, subregionsNames){
             let botId = divIndex - 1000
             document.getElementById("" + botId).style.display = "inline-block"
             document.getElementById(button.id).style.display = "none"
-
+            let index = visible.findIndex(el => el === ""+divIndex)
+            let index2 = visible.findIndex(el => el === ""+biggerDivId)
+            visible.splice(index, 1)
+            bigger.splice(index2, 1)
         })
     })
 
@@ -83,22 +75,37 @@ function eventsStarts(data, subregionsNames){
         site1.style.display = "flex"
         site2.style.display = "none"
         site3.style.display = "none"
+        removeItems()
     })
     change2.addEventListener('click', () =>{
         site1.style.display = "none"
         site2.style.display = "flex"
         site3.style.display = "none"
+        removeItems()
     })
     change3.addEventListener('click', () =>{
         site1.style.display = "none"
         site2.style.display = "none"
         site3.style.display = "flex"
+        removeItems()
     })
+}
+
+function removeItems(){
+    let n = visible.length
+    let bigD
+    let smallD
+    for(let i = 0; i < n; i++){
+        bigD = bigger.pop()
+        smallD = visible.pop()
+        document.getElementById(bigD).removeChild(document.getElementById(smallD))
+    }
 }
 
 async function loadPage(){
     const json = await fetch("https://restcountries.com/v3.1/all")
     const data = await json.json()
+    console.log(data)
     let subregionsNames = [[undefined, 0, 0]]
     let subregionName
     let index

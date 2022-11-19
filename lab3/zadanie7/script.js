@@ -85,7 +85,6 @@ async function getF(data){
     const filtered = cities.filter(city => city.township[0] === "p")
     const lenFiltered = filtered.length
     let sumArea = 0;
-    console.log(filtered)
     for(let city in filtered){
         sumArea += filtered[city].area
     }

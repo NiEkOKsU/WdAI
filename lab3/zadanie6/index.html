@@ -16,11 +16,11 @@
             <form action="">
                 <div class="input-cont">
                     <p>Imię nazwisko</p>
-                    <input type="text" required="true" id="name" name="name" required pattern="[A-Z]{1}[a-z]+[ ]{1}[A-Z]{1}[a-z]+">
+                    <input type="text" required="true" id="name" name="name" required pattern="[\s]*\p{Lu}\p{Ll}+\s\p{Lu}\p{Ll}+(-\p{Lu}\p{Ll}+)?[\s]*">
                 </div>
                 <div class="input-cont">
                     <p>Telefon</p>
-                    <input type="text" required="true" id="tel" name="tel" required pattern=".*?(\\d{2}).*(\\d{3}).*(\\d{3}).*(\\d{3})">
+                    <input type="text" required="true" id="tel" name="tel" required pattern="([\s]*[+]?[\s]*([0-9][\s]*){9}[\s]*)|[\s]*([+]?[\s]*([0-9][\s]*){12})[\s]*">
                 </div>
                 <div id="add">Dodaj</div>
             </form>
