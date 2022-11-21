@@ -105,7 +105,6 @@ function removeItems(){
 async function loadPage(){
     const json = await fetch("https://restcountries.com/v3.1/all")
     const data = await json.json()
-    console.log(data)
     let subregionsNames = [[undefined, 0, 0]]
     let subregionName
     let index
