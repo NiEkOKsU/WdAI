@@ -1,0 +1,11 @@
+main{
+    margin: 0 auto;
+    width: 70%;
+}
+h1{
+    font-family: 'Courier New', Courier, monospace;
+}
+input{
+    width: 50%;
+    margin-bottom: 10px;
+}

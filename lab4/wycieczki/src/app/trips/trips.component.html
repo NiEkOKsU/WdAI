@@ -1,0 +1,39 @@
+<div id="card" [ngStyle]="{
+    'background-color': allTripsInCard >= 10 ? 'green' : 'red'}">
+    {{allTripsInCard}}
+</div>
+
+<main>
+    <div *ngFor="let trip of trips" class="trips-list" 
+    [ngClass] = "{'least-expensive': trip.Price == getMinPrice(),
+        'most-expensive': trip.Price == getMaxPrice(),
+        'low-ammount': trip.MaxPeople - trip.Reserved <= 3 && trip.MaxPeople - trip.Reserved > 0,
+        'out-of-stock': trip.MaxPeople - trip.Reserved == 0}">
+        <img src="{{trip.Photo}}">
+        <h1>Nazwa: {{trip.Name | uppercase}}</h1>
+        <p>Cel podróży: {{trip.Destination | uppercase}}</p>
+        <p>Wyjazd: {{trip.StartDate | date:'d MMMM y'}}</p>
+        <p>Powrót: {{trip.EndDate | date:'d MMMM y'}}</p>
+        <p>Cena: {{trip.Price | currency:'PLN':'symbol-narrow'}}</p>
+        <p>Dodaj swoją reakcję:</p>
+        <app-triprate (ratingChanged)="ratingEventHandler(trip, $event)" [tripLikes]="trip.Likes" [tripDislikes]="trip.Dislikes"></app-triprate>
+        <p>
+        Ilość dostępnych miejsc: {{trip.MaxPeople - trip.Reserved}}</p>
+        <div class="reservations">
+            <p>Zarezerwowano:</p>
+            <div class="ammount">
+                <span  *ngIf="trip.Reserved > 0" class="minus" (click)="removeClick(trip)">-</span>
+                {{trip.Reserved}}
+                <span *ngIf="trip.Reserved < trip.MaxPeople" class="plus" (click)="addClick(trip)">+</span>
+            </div>
+            
+        </div>
+        
+        <p>Opis: {{trip.Description}}</p>
+        <div class="remove-trip" (click)="removeTrip(trip)">Usuń wycieczkę</div>
+    </div>
+</main>
+<div id="addTrip" (click)="visAddForm()">
+    Formularz dodawania wycieczek
+</div>
+<app-tripadd *ngIf="formAddVisibility" (formSubmitEvent)="formSubmitEventHandler($event)"></app-tripadd>

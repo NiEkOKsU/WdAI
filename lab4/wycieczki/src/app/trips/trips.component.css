@@ -1,0 +1,91 @@
+#card{
+    width: 50px;
+    height: 35px;
+    margin: auto;
+    border: 1px solid black;
+    text-align: center;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 20px;
+    justify-content: space-around;
+}
+
+.trips-list{
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 400px;
+}
+
+img{
+    text-align: center;
+    max-width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    clip-path: circle(50%);
+    clip: auto;
+}
+
+.least-expensive{
+    border-color:red;
+}
+
+.most-expensive{
+    border-color:rgb(10, 241, 10);
+}
+
+.reservations{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px;
+    border: 1px solid black;
+}
+
+.ammount{
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 20px;
+    align-items: center;
+}
+
+.minus, .plus{
+    cursor: pointer;
+}
+
+.low-ammount{
+    background-color: orange;
+    font-weight: bold;
+}
+
+.out-of-stock{
+    background-color: red;
+    font-weight: bold;
+    color: white;
+}
+
+.remove-trip{
+    width: 30%;
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: rgb(121, 13, 13);
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+#addTrip{
+    cursor: pointer;
+    background-color: aquamarine;
+    width: 20%;
+    padding: 10px;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 1.4rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 20px;
+    -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+}
