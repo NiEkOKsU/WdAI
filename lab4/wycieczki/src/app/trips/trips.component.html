@@ -2,9 +2,44 @@
     'background-color': allTripsInCard >= 10 ? 'green' : 'red'}">
     {{allTripsInCard}}
 </div>
-
+<div id="show-card" (click)="showCard()">
+    <span class="material-symbols-outlined">
+        shopping_cart
+    </span>
+</div>
+<section id="in-card" *ngIf="cardVis">
+    <app-card [trips]="trips"></app-card>
+</section>
+<div id="filter-vis" (click)="addVisFilter()">Filtruj</div>
+<section id="filter" *ngIf="filterVis">
+    <div class="filter-value" id="country">
+        <h4>Kraj: </h4>
+        <input type="text" [(ngModel)]="dest" (keyupp)="logg()">
+    </div>
+    <div class="filter-value" id="price">
+        <h4>Cena: </h4>
+        <p>Od: </p>
+        <input type="text" [(ngModel)]="minPrice" (keyupp)="logg()">
+        <p>Do: </p>
+        <input type="text" [(ngModel)]="maxPrice">
+    </div>
+    <div class="filter-value" id="date">
+        <h4>Data: </h4>
+        <p>Od: </p>
+        <input type="text" [(ngModel)]="startDate">
+        <p>Do: </p>
+        <input type="text" [(ngModel)]="endDate">
+    </div>
+    <div class="filter-value" id="likes">
+        <h4>Ocena: </h4>
+        <p>Min ilość pozytywnych: </p>
+        <input type="text" [(ngModel)]="likes">
+        <p>Max ilosc negatywnych: </p>
+        <input type="text" [(ngModel)]="dislikes">
+    </div>
+</section>
 <main>
-    <div *ngFor="let trip of trips" class="trips-list" 
+    <div *ngFor="let trip of trips | searchTrips : dest | searchByPrice : minPrice : maxPrice | searchByOpinions : likes : dislikes | searchByDate : startDate : endDate" class="trips-list" 
     [ngClass] = "{'least-expensive': trip.Price == getMinPrice(),
         'most-expensive': trip.Price == getMaxPrice(),
         'low-ammount': trip.MaxPeople - trip.Reserved <= 3 && trip.MaxPeople - trip.Reserved > 0,
@@ -30,7 +65,7 @@
         </div>
         
         <p>Opis: {{trip.Description}}</p>
-        <div class="remove-trip" (click)="removeTrip(trip)">Usuń wycieczkę</div>
+        <div class="remove-trip" (click)="reset(trip)" (click)="removeTrip(trip)">Usuń wycieczkę</div>
     </div>
 </main>
 <div id="addTrip" (click)="visAddForm()">

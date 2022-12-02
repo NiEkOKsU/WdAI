@@ -1,0 +1,92 @@
+{
+    "Fiat":{
+        "500":{
+            "colors":["white", "black", "blue", "yellow", "green", "brown", "orange"],
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec varius urna. In pretium nisi sed gravida ultrices. Vivamus imperdiet urna sit amet tristique luctus."
+        },
+        "600":{
+            "colors":["white", "black", "blue", "yellow", "green", "brown", "orange"],
+            "desc": "Vestibulum pretium ut ex nec rutrum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+        },
+        "Panda":{
+            "colors":["white", "black", "blue", "yellow", "green", "brown", "orange"],
+            "desc": "Praesent id rutrum metus. Aliquam sagittis faucibus est porttitor ultrices."
+        }
+    },
+    "Audi":{
+        "a3":{
+            "colors":["white", "black", "blue", "yellow", "green", "brown", "orange"],
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec varius urna. In pretium nisi sed gravida ultrices. Vivamus imperdiet urna sit amet tristique luctus."
+        },
+        "rs7":{
+            "colors":["white", "black", "blue", "yellow", "green", "brown", "orange"],
+            "desc": "Vestibulum pretium ut ex nec rutrum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+        },
+        "a5":{
+            "colors":["white", "black", "blue", "yellow", "green", "brown", "orange"],
+            "desc": "Nunc vitae pulvinar sapien, et blandit dolor. Pellentesque libero nibh, pellentesque vitae pharetra a, consectetur nec leo."
+        },
+        "a8":{
+            "colors":["white", "black", "blue", "yellow", "green", "brown", "orange"],
+            "desc": "Proin at erat laoreet, vulputate metus quis, luctus nisi. Suspendisse suscipit at augue eget molestie."
+        },
+        "q5":{
+            "colors":["white", "black", "blue", "yellow", "green", "brown", "orange"],
+            "desc": "Nunc nec ultricies urna. Nullam tempor porta ipsum. Mauris at tincidunt ex. Ut mattis finibus elementum."
+        }
+    },
+    "Mercedes":{
+        "EQE":{
+            "colors":["white", "black", "blue", "yellow", "green", "brown", "orange"],
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec varius urna. In pretium nisi sed gravida ultrices. Vivamus imperdiet urna sit amet tristique luctus."
+        },
+        "EQS":{
+            "colors":["white", "black", "blue", "yellow", "green", "brown", "orange"],
+            "desc": "Vestibulum pretium ut ex nec rutrum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+        },
+        "GLS":{
+            "colors":["white", "black", "blue", "yellow", "green", "brown", "orange"],
+            "desc": "Praesent id rutrum metus. Aliquam sagittis faucibus est porttitor ultrices."
+        },
+        "CLS":{
+            "colors":["white", "black", "blue", "yellow", "green", "brown", "orange"],
+            "desc": "Phasellus vehicula bibendum augue a maximus. Interdum et malesuada fames ac ante ipsum primis in faucibus."
+        },
+        "SL":{
+            "colors":["white", "black", "blue", "yellow", "green", "brown", "orange"],
+            "desc": "Pellentesque arcu tellus, euismod nec arcu quis, viverra rutrum urna. Aenean molestie ipsum non est ultrices efficitur. Cras ornare feugiat finibus."
+        }
+    },
+    "Toyota":{
+        "aygo":{
+            "colors":["white", "black", "blue", "yellow", "green", "brown", "orange"],
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec varius urna. In pretium nisi sed gravida ultrices. Vivamus imperdiet urna sit amet tristique luctus."
+        },
+        "yaris":{
+            "colors":["white", "black", "blue", "yellow", "green", "brown", "orange"],
+            "desc": "Aliquam cursus molestie felis eget viverra. Praesent pretium justo tristique nulla tristique, sed maximus nulla convallis. Pellentesque dapibus ultricies dictum."
+        },
+        "corolla":{
+            "colors":["white", "black", "blue", "yellow", "green", "brown", "orange"],
+            "desc": "Vestibulum mollis condimentum sollicitudin. Suspendisse nunc ante, blandit et porta sed, gravida eu tortor."
+        },
+        "rav4":{
+            "colors":["white", "black", "blue", "yellow", "green", "brown", "orange"],
+            "desc": "Praesent id rutrum metus. Aliquam sagittis faucibus est porttitor ultrices."
+        }
+    },
+    "Renault":{
+        "Clio":{
+            "colors":["white", "black", "blue", "yellow", "green", "brown", "orange"],
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec varius urna. In pretium nisi sed gravida ultrices. Vivamus imperdiet urna sit amet tristique luctus."
+        },
+        "Megane":{
+            "colors":["white", "black", "blue", "yellow", "green", "brown", "orange"],
+            "desc": "Vestibulum pretium ut ex nec rutrum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+        },
+        "Sandero":{
+            "colors":["white", "black", "blue", "yellow", "green", "brown", "orange"],
+            "desc": "Aliquam eu tortor porta, mattis massa et, euismod dui. Aliquam tincidunt ex ac mollis dictum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut maximus elit libero, vel cursus sem luctus quis. In vitae facilisis turpis."
+        }
+    }
+}

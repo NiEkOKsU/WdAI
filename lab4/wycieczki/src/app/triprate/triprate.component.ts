@@ -16,26 +16,34 @@ export class TriprateComponent {
   voteStatus:number = 0
 
   addVote(status:number){
-    if(this.voteStatus == status){
-      return
-    }
     if(status == 1){
       if(this.voteStatus == 0){
         this.ratingChanged.emit(1)
+        this.voteStatus = 1
+      }
+      else if(this.voteStatus == 1){
+        this.ratingChanged.emit(5)
+        this.voteStatus = 0
       }
       else{
         this.ratingChanged.emit(3)
+        this.voteStatus = 1
       }
-      this.voteStatus = 1
+      
     }
     else{
       if(this.voteStatus == 0){
         this.ratingChanged.emit(2)
+        this.voteStatus = 2
+      }
+      else if(this.voteStatus == 2){
+        this.ratingChanged.emit(6)
+        this.voteStatus = 0
       }
       else{
         this.ratingChanged.emit(4)
+        this.voteStatus = 2
       }
-      this.voteStatus = 2
     }
   }
 }

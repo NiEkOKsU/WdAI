@@ -1,0 +1,41 @@
+body{
+    overflow: hidden;
+}
+main{
+    border: 1px solid black;
+    width: 100%;
+    border-radius: 10px;
+}
+h1{
+    text-align: center;
+}
+section{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    column-gap: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.topics{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+button{
+    margin: 0 auto;
+    background-color: rgb(168, 10, 10);
+    border: none;
+    color: aliceblue;
+    border-radius: 30px;
+    padding: 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    width: 100px;
+}

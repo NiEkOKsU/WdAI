@@ -1,0 +1,9 @@
+<main>
+    <div *ngFor="let trip of trips">
+        <div *ngIf="trip.Reserved > 0" class="card-item">
+            <p>{{trip.Name | titlecase}}:</p>
+            <p>x{{trip.Reserved}}</p>
+        </div>
+    </div>
+    <h1>Suma: {{getSum()}}</h1>
+</main>

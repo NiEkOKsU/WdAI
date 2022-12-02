@@ -8,13 +8,23 @@ import { AppComponent } from './app.component';
 import { TripsComponent } from './trips/trips.component';
 import { TripaddComponent } from './tripadd/tripadd.component';
 import { TriprateComponent } from './triprate/triprate.component';
+import { SearchTripsPipe } from './search-trips.pipe';
+import { SearchByPricePipe } from './search-by-price.pipe';
+import { SearchByOpinionsPipe } from './search-by-opinions.pipe';
+import { SearchByDatePipe } from './search-by-date.pipe';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TripsComponent,
     TripaddComponent,
-    TriprateComponent
+    TriprateComponent,
+    SearchTripsPipe,
+    SearchByPricePipe,
+    SearchByOpinionsPipe,
+    SearchByDatePipe,
+    CardComponent,
   ],
   imports: [
     BrowserModule,

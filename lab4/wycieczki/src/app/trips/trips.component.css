@@ -4,8 +4,34 @@
     margin: auto;
     border: 1px solid black;
     text-align: center;
+    position: fixed;
+    left: 48.65%;
+    z-index: 1;
 }
-
+#show-card{
+    cursor: pointer;
+    background-color: aquamarine;
+    width: 30px;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.4rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 20px;
+    -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.filter-value{
+    display: flex;
+    align-items: center;
+    column-gap: 2vw;
+}
+input{
+    height: 20px;
+}
 main{
     display: flex;
     flex-wrap: wrap;
@@ -75,12 +101,10 @@ img{
     cursor: pointer;
 }
 
-#addTrip{
+#addTrip, #filter-vis{
     cursor: pointer;
     background-color: aquamarine;
-    width: 20%;
     padding: 10px;
-    margin-top: 40px;
     text-align: center;
     font-size: 1.4rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -88,4 +112,35 @@ img{
     -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
     -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
     box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+}
+#filter-vis{
+    width: 70px;
+    margin-bottom: 30px;
+}
+
+#filter{
+    background-color: bisque;
+    padding: 30px;
+    border-radius: 20px;
+    -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    margin-bottom: 30px;
+}
+
+#addTrip{
+    margin-top: 40px;
+    width: 25%;
+}
+
+@media only screen and (max-width:1000px) {
+    #card{
+        position: static;
+    }
+}
+
+@media only screen and (max-width:750px) {
+    .filter-value{
+        flex-direction: column;
+    }
 }
