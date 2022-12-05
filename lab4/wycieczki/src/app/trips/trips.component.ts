@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges } from '@angular/core';
 import Trips  from '../../assets/data/trips.json';
 import { Trip } from 'src/assets/data/trips'
 //import { FilterPipe } from './pipes/filter.pipe';
@@ -33,7 +33,9 @@ export class TripsComponent {
   getMinPrice():number{
     let minPrice : number = 10**10
     for(let trip of this.trips){
-      minPrice = minPrice >= trip.Price ? trip.Price : minPrice
+      if(trip.MaxPeople != trip.Reserved){
+        minPrice = minPrice >= trip.Price ? trip.Price : minPrice
+      }
     }
     return minPrice
   }
@@ -41,7 +43,9 @@ export class TripsComponent {
   getMaxPrice():number{
     let maxPrice : number = 0
     for(let trip of this.trips){
-      maxPrice = maxPrice <= trip.Price ? trip.Price : maxPrice
+      if(trip.MaxPeople != trip.Reserved){
+        maxPrice = maxPrice <= trip.Price ? trip.Price : maxPrice
+      }
     }
     return maxPrice
   }
@@ -55,11 +59,13 @@ export class TripsComponent {
   removeClick(trip: Trip){
     trip.Reserved -= 1
     this.allTripsInCard -= 1
+    this.dislikes = this.findMaxDislikes()
   }
 
   addClick(trip: Trip){
     trip.Reserved += 1
     this.allTripsInCard += 1
+    this.likes = this.findMinLikes()
   }
 
   reset(trip: Trip){
@@ -106,58 +112,62 @@ export class TripsComponent {
     return maxDislikes
   }
 
+  formResetEvent(newP: number){
+    this.maxPrice = newP
+  }
+
   formSubmitEventHandler(trip: Trip) {
     this.trips.push(trip)
     this.visAddForm()
-    this.minPrice = this.getMaxPrice()
-    this.maxPrice = this.getMinPrice()
-    this.likes = this.findMinLikes()
-    this.dislikes = this.findMaxDislikes()
     this.dest = ""
+    this.startDate = ""
+    this.endDate = ""
     this.minPrice = this.getMinPrice()
     this.maxPrice = this.getMaxPrice()
     this.likes = this.findMinLikes()
     this.dislikes = this.findMaxDislikes()
-    this.startDate = ""
-    this.endDate = ""
   }
 
   ratingEventHandler(trip: Trip, event:any){
     switch(event){
       case 1:{
         trip.Likes += 1
+        this.likes = this.findMinLikes()
         break
       }
       case 2: {
         trip.Dislikes += 1
+        this.dislikes = this.findMaxDislikes()
         break
       }
       case 3:{
         trip.Likes += 1
         trip.Dislikes -= 1
+        this.likes = this.findMinLikes()
+        this.dislikes = this.findMaxDislikes()
         break
       }
       case 4:{
         trip.Likes -= 1
         trip.Dislikes += 1
+        this.likes = this.findMinLikes()
+        this.dislikes = this.findMaxDislikes()
         break
       }
       case 5:{
         trip.Likes -= 1
+        this.likes = this.findMinLikes()
         break
       }
       case 6:{
         trip.Dislikes -= 1
+        this.dislikes = this.findMaxDislikes()
         break
       }
       default:{
         break
       }
     }
-  }
-
-  logg(){
-    console.log(this.minPrice)
   }
 
 }

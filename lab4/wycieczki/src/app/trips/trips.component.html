@@ -1,6 +1,6 @@
 <div id="card" [ngStyle]="{
     'background-color': allTripsInCard >= 10 ? 'green' : 'red'}">
-    {{allTripsInCard}}
+    Obecnie zarezerwowano: {{allTripsInCard}}
 </div>
 <div id="show-card" (click)="showCard()">
     <span class="material-symbols-outlined">
@@ -14,21 +14,21 @@
 <section id="filter" *ngIf="filterVis">
     <div class="filter-value" id="country">
         <h4>Kraj: </h4>
-        <input type="text" [(ngModel)]="dest" (keyupp)="logg()">
+        <input type="text" [(ngModel)]="dest">
     </div>
     <div class="filter-value" id="price">
         <h4>Cena: </h4>
         <p>Od: </p>
-        <input type="text" [(ngModel)]="minPrice" (keyupp)="logg()">
+        <input type="number" [(ngModel)]="minPrice" [min]="getMinPrice()" [max]="getMaxPrice()">
         <p>Do: </p>
-        <input type="text" [(ngModel)]="maxPrice">
+        <input type="number" [(ngModel)]="maxPrice" [min]="getMinPrice()" [max]="getMaxPrice()">
     </div>
     <div class="filter-value" id="date">
         <h4>Data: </h4>
         <p>Od: </p>
-        <input type="text" [(ngModel)]="startDate">
+        <input type="date" [(ngModel)]="startDate">
         <p>Do: </p>
-        <input type="text" [(ngModel)]="endDate">
+        <input type="date" [(ngModel)]="endDate">
     </div>
     <div class="filter-value" id="likes">
         <h4>Ocena: </h4>
@@ -65,10 +65,10 @@
         </div>
         
         <p>Opis: {{trip.Description}}</p>
-        <div class="remove-trip" (click)="reset(trip)" (click)="removeTrip(trip)">Usuń wycieczkę</div>
+        <div class="remove-trip" (click)="reset(trip)" (click)="removeTrip(trip)">X</div>
     </div>
 </main>
 <div id="addTrip" (click)="visAddForm()">
     Formularz dodawania wycieczek
 </div>
-<app-tripadd *ngIf="formAddVisibility" (formSubmitEvent)="formSubmitEventHandler($event)"></app-tripadd>
+<app-tripadd *ngIf="formAddVisibility" (reset)="formResetEvent($event)" (formSubmitEvent)="formSubmitEventHandler($event)"></app-tripadd>

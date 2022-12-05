@@ -1,9 +1,8 @@
-<p>trirate works!</p>
 <section class="likes">
     <p>Ilość Polubień: {{tripLikes}}</p>
     <span class="material-symbols-outlined" (click)="addVote(1)" [ngStyle]="{'color': voteStatus == 1 ? 'rgb(87, 78, 209)' : 'black'}"> thumb_up </span>
 </section>
 <section class="dislikes">
-    <p>Ilość Nipolubień: {{tripDislikes}}</p>
+    <p>Ilość Niepolubień: {{tripDislikes}}</p>
     <span class="material-symbols-outlined" (click)="addVote(2)" [ngStyle]="{'color': voteStatus == 2 ? 'rgb(87, 78, 209)' : 'black'}">thumb_down</span>
 </section>
