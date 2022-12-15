@@ -1,0 +1,58 @@
+a{
+    color: black;
+    text-decoration: none;
+}
+section{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+section span{
+    font-size: 2rem;
+    cursor: pointer;
+}
+img{
+    max-height: 700px;
+    max-width: 80%;
+    clip: auto;
+    object-fit: cover;
+}
+app-triprate{
+    max-width: 100px;
+}
+.reservations{
+    display: flex;
+    margin: 0px;
+    border: 1px solid black;
+    width: 260px;
+    text-align: center;
+}
+
+.ammount{
+    margin-left: 20px;
+    text-align: center;
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+}
+
+.minus, .plus{
+    cursor: pointer;
+    padding: 1px 10px;
+    font-size: 2rem;
+    border-radius: 100%;
+}
+.plus{
+    background-color: green;
+}
+.minus{
+    background-color: red;
+}
+.review{
+    margin-top: 20px;
+}
+.strong{
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

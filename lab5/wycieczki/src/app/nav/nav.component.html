@@ -1,0 +1,20 @@
+<nav>
+    <a routerLink=""><span class="material-symbols-outlined">home</span></a>
+    <a routerLink="/trips">Lista wycieczek</a>
+    <a routerLink="/add-trip">Dodaj wycieczkę</a>
+    <a routerLink="/card">Koszyk</a>
+    <a routerLink="/history">Zakupione wycieczki</a>
+    <div><span class="material-symbols-outlined show-more" (click)="switchView()">shopping_cart</span></div>
+    <section *ngIf="view" class="more">
+        <div>
+            <p>Witaj: (Imię Nazwisko klienta)</p>
+        </div>
+        <div>
+            <p>Ilość zarezerwowanych wycieczek: {{getNumOfReserved()}}</p>
+            <p>Suma: {{getSum() | currency:'PLN':'symbol-narrow'}}</p>
+        </div>
+        <div>
+            <p>Nadchodzące wycieczki: </p>
+        </div>
+    </section>
+</nav>

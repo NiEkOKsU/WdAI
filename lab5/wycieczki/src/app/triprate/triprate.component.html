@@ -1,0 +1,10 @@
+<main>
+    <section class="likes">
+        <p>Ilość Polubień: {{trip.Likes}}</p>
+        <span class="material-symbols-outlined" (click)="addVote(1)" [ngStyle]="{'color': trip.Liked == true ? 'rgb(87, 78, 209)' : 'black'}"> thumb_up </span>
+    </section>
+    <section class="dislikes">
+        <p>Ilość Niepolubień: {{trip.Dislikes}}</p>
+        <span class="material-symbols-outlined" (click)="addVote(2)" [ngStyle]="{'color': trip.Disliked == true ? 'rgb(87, 78, 209)' : 'black'}">thumb_down</span>
+    </section>
+</main>

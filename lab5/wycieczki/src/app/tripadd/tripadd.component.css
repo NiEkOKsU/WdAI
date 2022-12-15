@@ -1,0 +1,29 @@
+main{
+    margin: 0 auto;
+    width: 70%;
+}
+h1{
+    font-family: 'Courier New', Courier, monospace;
+}
+input{
+    width: 50%;
+    margin-bottom: 10px;
+}
+#form{
+    background-color: bisque;
+    width: 500px;
+    padding: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 20px;
+    -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 750px) {
+    #form{
+        width: 90%;
+        overflow: hidden;
+    }
+}

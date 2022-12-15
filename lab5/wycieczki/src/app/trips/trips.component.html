@@ -1,0 +1,48 @@
+<div id="card" [ngStyle]="{
+    'background-color': allTripsInCard >= 10 ? 'green' : 'red'}">
+    Obecnie zarezerwowano: {{allTripsInCard}}
+</div>
+<div id="filter-vis" (click)="addVisFilter()">Filtruj</div>
+<section id="filter" *ngIf="filterVis">
+    <div class="filter-value" id="country">
+        <h4>Kraj: </h4>
+        <input type="text" [(ngModel)]="dest">
+    </div>
+    <div class="filter-value" id="price">
+        <h4>Cena: </h4>
+        <p>Od: </p>
+        <input type="number" [(ngModel)]="minPrice" [min]="getMinPrice()" [max]="getMaxPrice()">
+        <p>Do: </p>
+        <input type="number" [(ngModel)]="maxPrice" [min]="getMinPrice()" [max]="getMaxPrice()">
+    </div>
+    <div class="filter-value" id="date">
+        <h4>Data: </h4>
+        <p>Od: </p>
+        <input type="date" [(ngModel)]="startDate">
+        <p>Do: </p>
+        <input type="date" [(ngModel)]="endDate">
+    </div>
+    <div class="filter-value" id="likes">
+        <h4>Ocena: </h4>
+        <p>Min ilość pozytywnych: </p>
+        <input type="text" [(ngModel)]="likes">
+        <p>Max ilosc negatywnych: </p>
+        <input type="text" [(ngModel)]="dislikes">
+    </div>
+</section>
+<main>
+    <div *ngFor="let trip of trips | searchTrips : dest | searchByPrice : minPrice : maxPrice | searchByOpinions : likes : dislikes | searchByDate : startDate : endDate" class="trips-list" 
+    [ngClass] = "{'least-expensive': trip.Price == getMinPrice(),
+        'most-expensive': trip.Price == getMaxPrice(),
+        'low-ammount': trip.MaxPeople - trip.Reserved <= 3 && trip.MaxPeople - trip.Reserved > 0,
+        'out-of-stock': trip.MaxPeople - trip.Reserved == 0}">
+        <a routerLink="/trips/{{trip.ID}}"><img src="{{trip.Photo[0]}}"></a>
+        <h1>Nazwa: {{trip.Name | uppercase}}</h1>
+        <p>Cel podróży: {{trip.Destination | uppercase}}</p>
+        <p>Wyjazd: {{trip.StartDate | date:'d MMMM y'}}</p>
+        <p>Powrót: {{trip.EndDate | date:'d MMMM y'}}</p>
+        <p>Cena: {{trip.Price | currency:'PLN':'symbol-narrow'}}</p>
+        <p>Opis: {{trip.Description}}</p>
+        <div class="remove-trip" (click)="reset(trip)" (click)="removeTrip(trip)">X</div>
+    </div>
+</main>

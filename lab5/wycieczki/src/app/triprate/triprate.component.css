@@ -1,0 +1,11 @@
+main{
+    width: 200px;
+}
+.likes, .dislikes{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.material-symbols-outlined{
+    cursor: pointer;
+}

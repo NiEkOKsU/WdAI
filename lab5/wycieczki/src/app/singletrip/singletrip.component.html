@@ -1,0 +1,33 @@
+<a routerLink="/trips">>Wróć do listy wycieczek</a>
+<h1>{{trip[0].Name | uppercase}}</h1>
+<h2>Lokalizacja: {{trip[0].Destination | uppercase}}</h2>
+<section>
+    <span class="material-symbols-outlined"(click)="prevPhoto()">arrow_back</span>
+    <img src="{{trip[0].Photo[idx]}}" alt="">
+    <span class="material-symbols-outlined" (click)="nextPhoto()">arrow_forward</span>
+</section>
+
+<p>Opis wycieczki: {{trip[0].Description}}</p>
+<h4>Cena: {{trip[0].Price | currency:'PLN':'symbol-narrow'}}</h4>
+<app-triprate (ratingChanged)="ratingEventHandler(trip[0], $event)" [trip]="trip[0]"></app-triprate>
+<div class="reservations">
+    <p>Zarezerwowano:</p>
+    <div class="ammount">
+        <span  *ngIf="trip[0].Reserved > 0" class="minus" (click)="removeClick()">-</span>
+        {{trip[0].Reserved}}
+        <span *ngIf="trip[0].Reserved < trip[0].MaxPeople" class="plus" (click)="addClick()">+</span>
+    </div>
+</div>
+<div class="review" *ngFor="let review of reviews">
+    <span class="strong">Użytkownik: </span><span>{{review.nick}}</span>
+    <br>
+    <span class="strong">Nazwa wycieczki: </span><span>{{review.tripName}}</span>
+    <br>
+    <span class="strong">Data: </span><span>{{review.date}}</span>
+    <br>
+    <span class="strong">Treść: </span><span>{{review.review}}</span>
+    <br>
+</div>
+
+
+<app-tripopinionform (newReviewEvent)="addReview($event)"></app-tripopinionform>
