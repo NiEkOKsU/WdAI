@@ -3,10 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TripsComponent } from './trips/trips.component';
 import { TripaddComponent } from './tripadd/tripadd.component';
 import { TriprateComponent } from './triprate/triprate.component';
 import { SearchTripsPipe } from './search-trips.pipe';
@@ -20,11 +18,15 @@ import { TriphistComponent } from './triphist/triphist.component';
 import { SingletripComponent } from './singletrip/singletrip.component';
 import { TripopinionformComponent } from './tripopinionform/tripopinionform.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireDatabaseModule} from '@angular/fire/compat/database';
+import { firebase } from '../environments/environment';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    TripsComponent,
     TripaddComponent,
     TriprateComponent,
     SearchTripsPipe,
@@ -44,7 +46,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(firebase.firebaseConfig),
+    AngularFireDatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

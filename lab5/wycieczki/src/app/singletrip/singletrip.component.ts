@@ -3,6 +3,7 @@ import { DataService } from '../data.service';
 import { Trip } from 'src/assets/data/trips'
 import { ActivatedRoute } from '@angular/router';
 import { review } from 'src/assets/data/IReview';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-singletrip',
   templateUrl: './singletrip.component.html',
@@ -10,12 +11,33 @@ import { review } from 'src/assets/data/IReview';
 })
 export class SingletripComponent {
   trips!: Trip[]
+  tripsSub: Subscription | undefined
   trip!:Trip[]
   id!:number
   idx:number = 0
   reviews: review[] = []
-  constructor(private data: DataService, private route: ActivatedRoute){
-    this.trips = this.data.getTrips()
+  constructor(private fb: DataService, private route: ActivatedRoute){
+    this.tripsSub = this.fb.getTrips().subscribe(change => {
+      this.trips = []
+      for (let trip of change){
+        this.trips.push({
+          ID: trip.ID,
+          Name: trip.Name,
+          Destination: trip.Destination,
+          StartDate: trip.StartDate,
+          EndDate: trip.EndDate,
+          Price: trip.Price,
+          MaxPeople: trip.MaxPeople,
+          Reserved: trip.Reserved,
+          Likes: trip.Likes,
+          Dislikes: trip.Dislikes,
+          Description: trip.Description,
+          Photo: trip.Photo,
+          Liked: trip.Liked,
+          Disliked: trip.Disliked
+        } as Trip)
+      }
+    })
     this.route.params.subscribe(param => this.id = param['id'])
     this.trip = this.trips.filter(trip => trip.ID == this.id)
   }

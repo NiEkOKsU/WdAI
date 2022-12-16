@@ -1,5 +1,4 @@
-{
-    "Trips": [
+[
         {
             "ID": 0,
             "Name": "Za wielką wodę",
@@ -160,5 +159,4 @@
             "Liked": false,
             "Disliked": false
         }
-    ]
-}
+]

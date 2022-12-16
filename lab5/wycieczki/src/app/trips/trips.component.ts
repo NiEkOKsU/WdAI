@@ -1,6 +1,7 @@
-import { Component, OnChanges } from '@angular/core';
+import { Component, ElementRef, QueryList, ViewChildren  } from '@angular/core';
 import { Trip } from 'src/assets/data/trips'
 import {  DataService } from 'src/app/data.service'
+import { Subscription } from 'rxjs';
 //import { FilterPipe } from './pipes/filter.pipe';
 
 @Component({
@@ -10,7 +11,8 @@ import {  DataService } from 'src/app/data.service'
 })
 
 export class TripsComponent {
-  trips!: Trip[];
+  trips!: any[]
+  tripsSub: Subscription | undefined
   filterVis: boolean = false
   allTripsInCard : number
   dest: string = ""
@@ -20,23 +22,45 @@ export class TripsComponent {
   dislikes!: number
   startDate:string = ""
   endDate:string = ""
-  constructor(private data: DataService){
+  constructor(private fb: DataService){
     this.allTripsInCard = 0
-    this.trips = this.data.getTrips()
-    this.minPrice = this.getMinPrice()
+    this.tripsSub = this.fb.getTrips().subscribe(change => {
+      this.trips = []
+      for (let trip of change){
+        this.trips.push({
+          ID: trip.ID,
+          Name: trip.Name,
+          Destination: trip.Destination,
+          StartDate: trip.StartDate,
+          EndDate: trip.EndDate,
+          Price: trip.Price,
+          MaxPeople: trip.MaxPeople,
+          Reserved: trip.Reserved,
+          Likes: trip.Likes,
+          Dislikes: trip.Dislikes,
+          Description: trip.Description,
+          Photo: trip.Photo,
+          Liked: trip.Liked,
+          Disliked: trip.Disliked
+        } as Trip)
+      }
+    })
+    this.minPrice = this.getMinPrice(this.trips)
     this.maxPrice = this.getMaxPrice()
     this.likes = this.findMinLikes()
     this.dislikes = this.findMaxDislikes()
   }
-
-  getMinPrice():number{
+  ngOnDestroy() {
+    this.tripsSub?.unsubscribe()
+  }
+  
+  getMinPrice(trips : Trip[] ):number{
     let minPrice : number = 10**10
-    for(let trip of this.trips){
+    for(let trip of trips){
       if(trip.MaxPeople != trip.Reserved){
         minPrice = minPrice >= trip.Price ? trip.Price : minPrice
       }
     }
-    console.log(minPrice)
     return minPrice
   }
 
@@ -67,7 +91,7 @@ export class TripsComponent {
         this.allTripsInCard -= this.trips[i].Reserved
         this.trips.splice(i, 1)
         this.dest = ""
-        this.minPrice = this.getMinPrice()
+        this.minPrice = this.getMinPrice(this.trips)
         this.maxPrice = this.getMaxPrice()
         this.likes = this.findMinLikes()
         this.dislikes = this.findMaxDislikes()
