@@ -17,6 +17,16 @@ main{
     flex-direction: row;
     column-gap: 10px;
 }
+.card-item p{
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+button{
+    color: white;
+    background-color:rgb(95, 58, 9);
+    padding: 5;
+    cursor: pointer;
+}
 
 @media only screen and (max-width: 750px){
     main{

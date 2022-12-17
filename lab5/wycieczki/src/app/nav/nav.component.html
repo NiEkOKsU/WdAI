@@ -4,17 +4,17 @@
     <a routerLink="/add-trip">Dodaj wycieczkę</a>
     <a routerLink="/card">Koszyk</a>
     <a routerLink="/history">Zakupione wycieczki</a>
-    <div><span class="material-symbols-outlined show-more" (click)="switchView()">shopping_cart</span></div>
+    <div><span class="show-more" (click)="switchView()">More Info</span></div>
     <section *ngIf="view" class="more">
         <div>
             <p>Witaj: (Imię Nazwisko klienta)</p>
         </div>
-        <div>
-            <p>Ilość zarezerwowanych wycieczek: {{getNumOfReserved()}}</p>
+        <div id="nums">
+            <p>Zarezerwowano: {{getNumOfReserved()}}</p>
             <p>Suma: {{getSum() | currency:'PLN':'symbol-narrow'}}</p>
         </div>
         <div>
-            <p>Nadchodzące wycieczki: </p>
+            <p>Nadchodzące wycieczki: {{fTripsNum}}</p>
         </div>
     </section>
 </nav>

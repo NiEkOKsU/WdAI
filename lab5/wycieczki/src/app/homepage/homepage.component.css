@@ -2,3 +2,22 @@ img{
     clip: auto;
     object-fit: cover;
 }
+section{
+    font-size: 1.5em;
+}
+div{
+    margin-top: 50px;
+    border-top: 2px solid rgba(125, 125, 125, 0.4);
+}
+#d, #s, #travel{
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+#s{
+    color:red
+}
+#d{
+    color: white;
+}
+#travel{
+    color: blue;
+}

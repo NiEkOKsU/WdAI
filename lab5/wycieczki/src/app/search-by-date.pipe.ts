@@ -19,18 +19,18 @@ export class SearchByDatePipe implements PipeTransform {
       let splitted1
       return trips.filter(trip =>{
         splitted1 = trip.StartDate.split("-")
-        return ((parseInt(splitted1[2]) > parseInt(startDateSpl[0])) || 
-        (parseInt(splitted1[2]) == parseInt(startDateSpl[0]) && parseInt(splitted1[0]) > parseInt(startDateSpl[1])) || 
-        (parseInt(splitted1[2]) == parseInt(startDateSpl[0]) && parseInt(splitted1[0]) == parseInt(startDateSpl[1]) && parseInt(splitted1[1]) >= parseInt(startDateSpl[2])))
+        return ((parseInt(splitted1[0]) > parseInt(startDateSpl[0])) || 
+        (parseInt(splitted1[0]) == parseInt(startDateSpl[0]) && parseInt(splitted1[1]) > parseInt(startDateSpl[1])) || 
+        (parseInt(splitted1[0]) == parseInt(startDateSpl[0]) && parseInt(splitted1[1]) == parseInt(startDateSpl[1]) && parseInt(splitted1[2]) >= parseInt(startDateSpl[2])))
       })
     }
     if(!startDate){
       let splitted2
       return trips.filter(trip =>{
         splitted2 = trip.EndDate.split("-")
-        return ((parseInt(splitted2[2]) < parseInt(endDateSpl[0])) || 
-        (parseInt(splitted2[2]) == parseInt(endDateSpl[0]) && parseInt(splitted2[0]) < parseInt(endDateSpl[1])) || 
-        (parseInt(splitted2[2]) == parseInt(endDateSpl[0]) && parseInt(splitted2[0]) == parseInt(endDateSpl[1]) && parseInt(splitted2[1]) <= parseInt(endDateSpl[2])))
+        return ((parseInt(splitted2[0]) < parseInt(endDateSpl[0])) || 
+        (parseInt(splitted2[0]) == parseInt(endDateSpl[0]) && parseInt(splitted2[1]) < parseInt(endDateSpl[1])) || 
+        (parseInt(splitted2[0]) == parseInt(endDateSpl[0]) && parseInt(splitted2[1]) == parseInt(endDateSpl[1]) && parseInt(splitted2[2]) <= parseInt(endDateSpl[2])))
       })
     }
     let splitted1
@@ -38,12 +38,12 @@ export class SearchByDatePipe implements PipeTransform {
     return trips.filter(trip =>{
       splitted1 = trip.StartDate.split("-")
       splitted2 = trip.EndDate.split("-")
-      return ((parseInt(splitted1[2]) > parseInt(startDateSpl[0])) || 
-      (parseInt(splitted1[2]) == parseInt(startDateSpl[0]) && parseInt(splitted1[0]) > parseInt(startDateSpl[1])) || 
-      (parseInt(splitted1[2]) == parseInt(startDateSpl[0]) && parseInt(splitted1[0]) == parseInt(startDateSpl[1]) && parseInt(splitted1[1]) >= parseInt(startDateSpl[2]))) &&
-      ((parseInt(splitted2[2]) < parseInt(endDateSpl[0])) || 
-      (parseInt(splitted2[2]) == parseInt(endDateSpl[0]) && parseInt(splitted2[0]) < parseInt(endDateSpl[1])) || 
-      (parseInt(splitted2[2]) == parseInt(endDateSpl[0]) && parseInt(splitted2[0]) == parseInt(endDateSpl[1]) && parseInt(splitted2[1]) <= parseInt(endDateSpl[2])))
+      return ((parseInt(splitted1[0]) > parseInt(startDateSpl[0])) || 
+      (parseInt(splitted1[0]) == parseInt(startDateSpl[0]) && parseInt(splitted1[1]) > parseInt(startDateSpl[1])) || 
+      (parseInt(splitted1[0]) == parseInt(startDateSpl[0]) && parseInt(splitted1[1]) == parseInt(startDateSpl[1]) && parseInt(splitted1[2]) >= parseInt(startDateSpl[2]))) &&
+      ((parseInt(splitted2[0]) < parseInt(endDateSpl[0])) || 
+      (parseInt(splitted2[0]) == parseInt(endDateSpl[0]) && parseInt(splitted2[1]) < parseInt(endDateSpl[1])) || 
+      (parseInt(splitted2[0]) == parseInt(endDateSpl[0]) && parseInt(splitted2[1]) == parseInt(endDateSpl[1]) && parseInt(splitted2[2]) <= parseInt(endDateSpl[2])))
     })
   }
 

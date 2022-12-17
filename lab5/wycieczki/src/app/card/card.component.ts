@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Trip } from 'src/assets/data/trips'
 import {  DataService } from 'src/app/data.service'
+import { BoughtTripsService } from '../bought-trips.service';
 import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-card',
@@ -10,34 +11,19 @@ import { Subscription } from 'rxjs';
 export class CardComponent {
   trips!: Trip[]
   tripsSub: Subscription | undefined
-  constructor(private fb: DataService){
-    this.tripsSub = this.fb.getTrips().subscribe(change => {
-      this.trips = []
-      for (let trip of change){
-        this.trips.push({
-          ID: trip.ID,
-          Name: trip.Name,
-          Destination: trip.Destination,
-          StartDate: trip.StartDate,
-          EndDate: trip.EndDate,
-          Price: trip.Price,
-          MaxPeople: trip.MaxPeople,
-          Reserved: trip.Reserved,
-          Likes: trip.Likes,
-          Dislikes: trip.Dislikes,
-          Description: trip.Description,
-          Photo: trip.Photo,
-          Liked: trip.Liked,
-          Disliked: trip.Disliked
-        } as Trip)
-      }
-    })
+  constructor(private data: DataService, private bought: BoughtTripsService){
+    this.trips = data.getTrips()
   }
+
   getSum(){
     let sum = 0
     for(let trip of this.trips){
       sum += trip.Reserved * trip.Price
     }
     return sum
+  }
+
+  buyTrip(trip: Trip){
+    this.bought.buyTrip(trip)
   }
 }

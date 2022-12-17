@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Trip } from 'src/assets/data/trips'
 import {  DataService } from 'src/app/data.service'
-import { Subscription } from 'rxjs';
+import { BoughtTripsService } from '../bought-trips.service';
+import { BoughtTrips } from 'src/assets/data/IBoughTrip';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -9,31 +10,14 @@ import { Subscription } from 'rxjs';
 })
 export class NavComponent {
   trips!: Trip[]
-  tripsSub: Subscription | undefined
+  bought!: BoughtTrips[]
   view: boolean = false
-  constructor(private fb: DataService){
-    this.tripsSub = this.fb.getTrips().subscribe(change => {
-      this.trips = []
-      for (let trip of change){
-        this.trips.push({
-          ID: trip.ID,
-          Name: trip.Name,
-          Destination: trip.Destination,
-          StartDate: trip.StartDate,
-          EndDate: trip.EndDate,
-          Price: trip.Price,
-          MaxPeople: trip.MaxPeople,
-          Reserved: trip.Reserved,
-          Likes: trip.Likes,
-          Dislikes: trip.Dislikes,
-          Description: trip.Description,
-          Photo: trip.Photo,
-          Liked: trip.Liked,
-          Disliked: trip.Disliked
-        } as Trip)
-      }
-    })
+  fTripsNum: number = 0
+  constructor(private data: DataService, private boughts: BoughtTripsService){
+    this.trips = data.getTrips()
+    this.bought = boughts.boughtTrips
   }
+
   getSum(){
     let sum = 0
     for(let trip of this.trips){
@@ -50,5 +34,15 @@ export class NavComponent {
   }
   switchView(){
     this.view = !this.view
+    this.futureTrips()
+  }
+  futureTrips(){
+    this.fTripsNum = 0
+    this.bought.forEach(trip =>{
+      if(trip.status == 'nieodbyta'){
+        this.fTripsNum += 1
+      }
+    })
+    return this.fTripsNum
   }
 }

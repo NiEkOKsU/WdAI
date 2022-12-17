@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataService } from './data.service';
+import { Output } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,5 @@ import { DataService } from './data.service';
 })
 export class AppComponent {
   title = 'wycieczki';
-  constructor(private fb: DataService){
-
-  }
+  @Output() trips: any;
 }

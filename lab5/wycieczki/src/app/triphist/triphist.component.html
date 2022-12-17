@@ -1,1 +1,26 @@
-<p>triphist works!</p>
+<h1>Historia zakupionych wycieczek</h1>
+<div *ngIf="boughtTrips.length > 0" id="filter-vis" (click)="addVisFilter()">Filtruj</div>
+<section id="filters" *ngIf="filterVis">
+    <div>
+        <label for="nieodbyta">Nieodbyta</label>
+        <input type="checkbox" name="nieodbyta" [(ngModel)]="showFuture">
+    </div>
+    <div>    
+        <label for="w trkacie">W trakcie</label>
+        <input type="checkbox" name="w trakcie" [(ngModel)]="showDuring">
+    </div>
+    <div>    
+        <label for="osbyta">Odbyta</label>
+        <input type="checkbox" name="odbyta" [(ngModel)]="showPast">
+    </div>
+</section>
+<main>
+    <div *ngFor="let trip of boughtTrips | searchByStatus : showFuture : showDuring : showPast" class="item">
+        <p>Data zakupu: {{trip.boughtData}}</p>
+        <p>Cena: {{trip.price | currency:'PLN':'symbol-narrow'}}</p>
+        <p>Poczatek wycieczki: {{trip.startDate| date}}</p>
+        <p>Koniec wycieczki: {{trip.endDate| date}}</p>
+        <p>Liczba biletów: {{trip.tickets}}</p>
+        <p>Status: {{trip.status}}</p>
+    </div>
+</main>

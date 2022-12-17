@@ -1,41 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Trip } from 'src/assets/data/trips'
-import { Observable } from 'rxjs';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
-import { initializeApp } from "firebase/app"
-import {collection, getDoc, getDocs, getFirestore} from 'firebase/firestore'
+import Trips  from '../assets/data/trips.json';
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  trips!: Observable<any[]>; 
+  trips!: any[]; 
   private nextId!: number
-  constructor(private db: AngularFireDatabase) {
-    this.trips = this.db.list('trips').valueChanges();
-    this.db.list('trips', ref=> ref.orderByChild('id')).valueChanges().subscribe((res: any[]) => {this.nextId = res[0]?.id+1})
+  constructor() {
+    this.trips = Trips.Trips
   }
-  getTrips(): Observable<any[]>{
+  getTrips(){
     return this.trips
   }
   addTrip(trip: Trip){
-    this.db.list('trips').push({
-      id: trip.ID,
-      Name: trip.Name,
-      Destination: trip.Destination,
-      StartDate: trip.StartDate,
-      EndDate: trip.EndDate,
-      Price: trip.Price,
-      MaxPeople: trip.MaxPeople,
-      Reserved: trip.Reserved,
-      Likes: trip.Likes,
-      Dislikes: trip.Dislikes,
-      Description: trip.Description,
-      Photo: trip.Photo,
-      Liked: trip.Liked,
-      Disliked: trip.Disliked
-    })
+    this.trips.push(trip)
   }
   addID(){
+    this.nextId = this.trips[this.trips.length - 1].ID
     return this.nextId
   }
 }

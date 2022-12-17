@@ -14,30 +14,10 @@ export class TripaddComponent {
 
   trip!:Trip
   
-  constructor(private fb: DataService) { 
-    this.tripsSub = this.fb.getTrips().subscribe(change => {
-      this.trips = []
-      for (let trip of change){
-        this.trips.push({
-          ID: trip.ID,
-          Name: trip.Name,
-          Destination: trip.Destination,
-          StartDate: trip.StartDate,
-          EndDate: trip.EndDate,
-          Price: trip.Price,
-          MaxPeople: trip.MaxPeople,
-          Reserved: trip.Reserved,
-          Likes: trip.Likes,
-          Dislikes: trip.Dislikes,
-          Description: trip.Description,
-          Photo: trip.Photo,
-          Liked: trip.Liked,
-          Disliked: trip.Disliked
-        } as Trip)
-      }
-    })
+  constructor(private data: DataService) { 
+    this.trips = data.getTrips()
     this.trip =  {
-      ID: this.fb.addID(),
+      ID: this.data.addID(),
       Name: '',
       Destination: '',
       StartDate: '',
@@ -98,9 +78,9 @@ export class TripaddComponent {
     }
     this.trip.Photo = [photoSrc, photoSrc]
     console.log(this.trip.Photo)
-    this.fb.addTrip(this.trip)
+    this.data.addTrip(this.trip)
     this.trip = {  
-    ID: this.fb.addID(),  
+    ID: this.data.addID(),  
     Name: '',
     Destination: '',
     StartDate: '',

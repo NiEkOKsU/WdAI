@@ -1,5 +1,6 @@
 nav{
     display: flex;
+    position: relative;
     justify-content: space-around;
     align-items: center;
     background-color: aqua;
@@ -22,8 +23,8 @@ span{
 .more{
     position: absolute;
     background-color: aqua;
-    top: 65px;
-    right: 8px;
+    top: 58px;
+    right: 0px;
     z-index: 2;
     border-radius: 0 0 10px 10px;
 }
@@ -35,7 +36,7 @@ div{
 p{
     font-size: 1.1rem;
 }
-@media only screen and (max-width: 936px) {
+@media only screen and (max-width: 1044px) {
     .more{
         top: 92px;
     }
@@ -48,6 +49,10 @@ p{
     }
     .more{
         top: 400px;
-        width: 40%;
+        width: 100%;
+    }
+    #nums{
+        display: flex;
+        flex-direction: column;
     }
 }

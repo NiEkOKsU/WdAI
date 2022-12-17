@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TripsComponent } from './trips/trips.component';
 import { TripaddComponent } from './tripadd/tripadd.component';
 import { TriprateComponent } from './triprate/triprate.component';
 import { SearchTripsPipe } from './search-trips.pipe';
@@ -17,16 +19,16 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { TriphistComponent } from './triphist/triphist.component';
 import { SingletripComponent } from './singletrip/singletrip.component';
 import { TripopinionformComponent } from './tripopinionform/tripopinionform.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { AngularFireModule } from "@angular/fire/compat";
-import { AngularFireDatabaseModule} from '@angular/fire/compat/database';
-import { firebase } from '../environments/environment';
+import { SearchByStatusPipe } from './search-by-status.pipe';
+
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    TripsComponent,
     TripaddComponent,
     TriprateComponent,
     SearchTripsPipe,
@@ -39,16 +41,14 @@ import { firebase } from '../environments/environment';
     TriphistComponent,
     SingletripComponent,
     TripopinionformComponent,
+    SearchByStatusPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    AngularFireModule.initializeApp(firebase.firebaseConfig),
-    AngularFireDatabaseModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
